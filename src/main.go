@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	/*
 	"log"
 	"strconv"
+	*/
 )
 
 /*
@@ -43,25 +45,28 @@ func areaCirculo(radio float64) float64 {
 	const pi float64 = 3.141592
 	return radio * radio * pi
 }
-*/
+
 
 // Reto crear funciones
 // Crear una fun que reciba un numero y diga si es par o impar
-func numParImpar (num int) string{
-	if num % 2 == 0  {
+func numParImpar(num int) string {
+	if num%2 == 0 {
 		return "Es par"
-	}else{
+	} else {
 		return "Es impar"
 	}
 }
+
 // Crear fun que reciba un usu y pass, y diga si son validos o no para ing a la plataforma
-func valUsuPass (usuName, pass string) bool {
+func valUsuPass(usuName, pass string) bool {
 	if usuName == "Nicolas" && pass == "1313u" {
 		return true
-	}else{
+	} else {
 		return false
 	}
 }
+*/
+
 
 
 func main() {
@@ -209,28 +214,27 @@ func main() {
 
 	//Ciclo for
 	/*
-			// For condicional
-			for i := 0; i <= 10; i++{
-				fmt.Println(i)
-			}
+		// For condicional
+		for i := 0; i <= 10; i++{
+			fmt.Println(i)
+		}
 
-			fmt.Printf("\n")
+		fmt.Printf("\n")
 
-			// For while
-			counter := 0
-			for counter <= 10 {
-				fmt.Println(counter)
-				counter++
-			}
+		// For while
+		counter := 0
+		for counter <= 10 {
+			fmt.Println(counter)
+			counter++
+		}
 
-			// For forever
-		/*	counterForever := 0
-			for {
-				fmt.Println(counterForever)
-				counterForever++
-			}
-	*/
-	/*
+		// For forever
+		counterForever := 0
+		for {
+			fmt.Println(counterForever)
+			counterForever++
+		}
+
 		// For arreglo
 		// For arreglo segun (cantidad del array)
 		fmt.Printf("\n")
@@ -251,38 +255,60 @@ func main() {
 
 	*/
 
-	valor1 := 1
-	valor2 := 2
+	// if, else, conv string -> ing, reto par o impart y val usu con pass
 
-	if valor1 == 1 {
-		fmt.Println("Es 1")
-	} else {
-		fmt.Println("No es 1")
+	/*
+		valor1 := 1
+		valor2 := 2
+
+		if valor1 == 1 {
+			fmt.Println("Es 1")
+		} else {
+			fmt.Println("No es 1")
+		}
+
+		if valor1 == 1 && valor2 == 2 {
+			fmt.Println("Se cumple")
+		}
+
+		if valor1 == 0 || valor2 == 2 {
+			fmt.Println("Al menos 1 es verdadero")
+		}
+
+		// Convertir texto a número
+		value, err := strconv.Atoi("58")
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("Value: ", value)
+
+		// Uso funciones
+		// Numero es par o impar
+		numero := numParImpar(8)
+		fmt.Println(numero)
+
+		//Validad usuario con password
+		ingreso := valUsuPass("Nicolas","1313u")
+		fmt.Println(ingreso)
+	*/
+
+	switch modulo := 5 % 2; modulo {
+	case 0:
+		fmt.Println("Es par")
+	default:
+		fmt.Println("Es impar")
+	} 
+
+	value := 101
+
+	switch {
+	case value < 100:
+		fmt.Println("Es menor de 100")
+	case value > 200:
+		fmt.Println("Es mayor de 200")
+	default:
+		fmt.Println("Caso inrreconocible")
 	}
-
-	if valor1 == 1 && valor2 == 2 {
-		fmt.Println("Se cumple")
-	}
-
-	if valor1 == 0 || valor2 == 2 {
-		fmt.Println("Al menos 1 es verdadero")
-	}
-
-	// Convertir texto a número
-	value, err := strconv.Atoi("58")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("Value: ", value)
-
-	// Uso funciones
-	// Numero es par o impar
-	numero := numParImpar(8)
-	fmt.Println(numero)
-
-	//Validad usuario con password
-	ingreso := valUsuPass("Nicolas","1313u")
-	fmt.Println(ingreso)
 
 
 }
