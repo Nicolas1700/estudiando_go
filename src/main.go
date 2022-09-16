@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	/*
 		"log"
 		"strconv"
@@ -65,6 +66,22 @@ func valUsuPass(usuName, pass string) bool {
 	}
 }
 */
+
+func isPalindromo(text string) {
+
+	text = strings.ToLower(text)
+	textReverse := ""
+
+	for i := len(text) - 1; i >= 0; i-- {
+		textReverse += string(text[i])
+	}
+
+	if text == textReverse {
+		fmt.Println("Es palindromo")
+	}else{
+		fmt.Println("No es palindromo")
+	}
+}
 
 func main() {
 
@@ -332,28 +349,40 @@ func main() {
 		}
 	*/
 
-	var array [4]int
+	// Arrays y slices
+	/*
+		var array [4]int
 
-	array[0] = 1
-	array[3] = 3
-	fmt.Println(array)
+		array[0] = 1
+		array[3] = 3
+		fmt.Println(array)
 
-	fmt.Println(len(array),cap(array))
+		fmt.Println(len(array),cap(array))
 
-	slice := []int{0,1,2,3,4,5,6}
-	//fmt.Println(slice)
-	//fmt.Println(slice[0])
-	//fmt.Println(slice[:3])
-	//fmt.Println(slice[3:4])
-	//fmt.Println(slice[4:])
-	
-	// Append()
-	slice = append(slice,7)
-	fmt.Println(slice)
-	
-	// Append() con una lista
-	newSlice := []int{8,9,10}
-	slice = append(slice,newSlice...)
-	fmt.Println(slice)
+		slice := []int{0,1,2,3,4,5,6}
+		//fmt.Println(slice)
+		//fmt.Println(slice[0])
+		//fmt.Println(slice[:3])
+		//fmt.Println(slice[3:4])
+		//fmt.Println(slice[4:])
+
+		// Append()
+		slice = append(slice,7)
+		fmt.Println(slice)
+
+		// Append() con una lista
+		newSlice := []int{8,9,10}
+		slice = append(slice,newSlice...)
+		fmt.Println(slice)
+	*/
+
+	// Recorrido de slices
+	slice := []string{"Hola", "que", "hace"}
+	for i, j := range slice {
+		fmt.Printf("indice i: %d tiene como valor %s \n", i, j)
+	}
+
+	// Palindromo
+	isPalindromo("Reconocer")
 
 }
