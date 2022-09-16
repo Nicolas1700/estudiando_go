@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
+/*
 func funNormal() {
 	fmt.Println("Hello word")
 }
@@ -38,6 +43,26 @@ func areaCirculo(radio float64) float64 {
 	const pi float64 = 3.141592
 	return radio * radio * pi
 }
+*/
+
+// Reto crear funciones
+// Crear una fun que reciba un numero y diga si es par o impar
+func numParImpar (num int) string{
+	if num % 2 == 0  {
+		return "Es par"
+	}else{
+		return "Es impar"
+	}
+}
+// Crear fun que reciba un usu y pass, y diga si son validos o no para ing a la plataforma
+func valUsuPass (usuName, pass string) bool {
+	if usuName == "Nicolas" && pass == "1313u" {
+		return true
+	}else{
+		return false
+	}
+}
+
 
 func main() {
 
@@ -183,45 +208,81 @@ func main() {
 	*/
 
 	//Ciclo for
-	// For condicional
-	for i := 0; i <= 10; i++{
-		fmt.Println(i)
+	/*
+			// For condicional
+			for i := 0; i <= 10; i++{
+				fmt.Println(i)
+			}
+
+			fmt.Printf("\n")
+
+			// For while
+			counter := 0
+			for counter <= 10 {
+				fmt.Println(counter)
+				counter++
+			}
+
+			// For forever
+		/*	counterForever := 0
+			for {
+				fmt.Println(counterForever)
+				counterForever++
+			}
+	*/
+	/*
+		// For arreglo
+		// For arreglo segun (cantidad del array)
+		fmt.Printf("\n")
+		nombresArray := [5]string{"Ana", "José", "Daniel", "María", "Carlos"}
+		for i := 0; i < len(nombresArray); i++ {
+			fmt.Println(nombresArray[i])
+		}
+		fmt.Printf("\n")
+
+		//For Range (para obtener indice y valor)
+		arreglo := []int{0, 1, 4, 6, 10, 9}
+		fmt.Println("Arreglo:", arreglo)
+
+		fmt.Println("Primer ejemplo")
+		for i, j := range arreglo {
+			fmt.Printf("indice i: %d tiene como valor #%d\n", i, j)
+		}
+
+	*/
+
+	valor1 := 1
+	valor2 := 2
+
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	} else {
+		fmt.Println("No es 1")
 	}
 
-	fmt.Printf("\n")
-
-	// For while
-	counter := 0
-	for counter <= 10 {
-		fmt.Println(counter)
-		counter++
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("Se cumple")
 	}
 
-	// For forever
-	/*counterForever := 0
-	for {
-		fmt.Println(counterForever)
-		counterForever++
-	}*/
-
-	// For arreglo
-	// For arreglo segun (cantidad del array)
-	fmt.Printf("\n")
-	nombresArray := [5]string{"Ana", "José", "Daniel", "María", "Carlos"}
-	for i := 0; i < len(nombresArray); i++ {
-		fmt.Println(nombresArray[i])
-	}
-	fmt.Printf("\n")
-
-	//For Range (para obtener indice y valor)
-	arreglo := []int{0, 1, 4, 6, 10, 9}
-	fmt.Println("Arreglo:", arreglo)
-
-	fmt.Println("Primer ejemplo")
-	for i, j := range arreglo {
-		fmt.Printf("indice i: %d tiene como valor #%d\n", i, j)
+	if valor1 == 0 || valor2 == 2 {
+		fmt.Println("Al menos 1 es verdadero")
 	}
 
+	// Convertir texto a número
+	value, err := strconv.Atoi("58")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Value: ", value)
+
+	// Uso funciones
+	// Numero es par o impar
+	numero := numParImpar(8)
+	fmt.Println(numero)
+
+	//Validad usuario con password
+	ingreso := valUsuPass("Nicolas","1313u")
+	fmt.Println(ingreso)
 
 
 }
