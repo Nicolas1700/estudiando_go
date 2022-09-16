@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 	/*
-	"log"
-	"strconv"
-	*/
-)
+		"log"
+		"strconv"
+	*/)
 
 /*
 func funNormal() {
@@ -66,8 +65,6 @@ func valUsuPass(usuName, pass string) bool {
 	}
 }
 */
-
-
 
 func main() {
 
@@ -256,7 +253,6 @@ func main() {
 	*/
 
 	// if, else, conv string -> ing, reto par o impart y val usu con pass
-
 	/*
 		valor1 := 1
 		valor2 := 2
@@ -292,23 +288,44 @@ func main() {
 		fmt.Println(ingreso)
 	*/
 
-	switch modulo := 5 % 2; modulo {
-	case 0:
-		fmt.Println("Es par")
-	default:
-		fmt.Println("Es impar")
-	} 
+	// Switch
+	/*
+		switch modulo := 5 % 2; modulo {
+		case 0:
+			fmt.Println("Es par")
+		default:
+			fmt.Println("Es impar")
+		}
 
-	value := 101
+		value := 101
 
-	switch {
-	case value < 100:
-		fmt.Println("Es menor de 100")
-	case value > 200:
-		fmt.Println("Es mayor de 200")
-	default:
-		fmt.Println("Caso inrreconocible")
+		switch {
+		case value < 100:
+			fmt.Println("Es menor de 100")
+		case value > 200:
+			fmt.Println("Es mayor de 200")
+		default:
+			fmt.Println("Caso inrreconocible")
+		}
+	*/
+
+	// Defer
+	defer fmt.Println("Hola")
+	fmt.Println("Mundo")
+	
+
+	for i := 0; i < 10; i++ {
+		// Continue
+		fmt.Println(i)
+		
+		if i == 2 {
+			fmt.Println("Es 2")
+			continue
+		}
+
+		if i == 8 {
+			fmt.Println("Breack")
+			break
+		}
 	}
-
-
 }
