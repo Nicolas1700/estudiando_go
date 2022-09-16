@@ -156,29 +156,72 @@ func main() {
 	*/
 
 	//Uso de funciones
-	
-	//Una funcion sin parametros
-	funNormal()
-	//funcion con un parametro
-	funUnParametro("Hello world")
-	//Funcion con varios parametros
-	funVariosParametros(1, 2, "Hello")
-	// Funcion con return
-	value := retunrValue(2)
-	fmt.Println(value)
-	// Funcion con varios return
-	value1, _ := doubleValue(2)
-	fmt.Println("Value 1: ", value1)
+	/*
+		//Una funcion sin parametros
+		funNormal()
+		//funcion con un parametro
+		funUnParametro("Hello world")
+		//Funcion con varios parametros
+		funVariosParametros(1, 2, "Hello")
+		// Funcion con return
+		value := retunrValue(2)
+		fmt.Println(value)
+		// Funcion con varios return
+		value1, _ := doubleValue(2)
+		fmt.Println("Value 1: ", value1)
 
-	//Reto funciones de areas de figuras geometricas
-	//Rectangulo
-	areaRectangulo := areaRectangulo(5, 8)
-	fmt.Println("Area Rectangulo: ", areaRectangulo)
-	//Trapecio
-	areaTrapecio := areaTrapecio(5, 6, 9)
-	fmt.Println("Area Trapecio: ", areaTrapecio)
-	//Ciculo
-	areaCirculo := areaCirculo(5)
-	fmt.Println("Area circulo: ", areaCirculo)
+		//Reto funciones de areas de figuras geometricas
+		//Rectangulo
+		areaRectangulo := areaRectangulo(5, 8)
+		fmt.Println("Area Rectangulo: ", areaRectangulo)
+		//Trapecio
+		areaTrapecio := areaTrapecio(5, 6, 9)
+		fmt.Println("Area Trapecio: ", areaTrapecio)
+		//Ciculo
+		areaCirculo := areaCirculo(5)
+		fmt.Println("Area circulo: ", areaCirculo)
+	*/
+
+	//Ciclo for
+	// For condicional
+	for i := 0; i <= 10; i++{
+		fmt.Println(i)
+	}
+
+	fmt.Printf("\n")
+
+	// For while
+	counter := 0
+	for counter <= 10 {
+		fmt.Println(counter)
+		counter++
+	}
+
+	// For forever
+	/*counterForever := 0
+	for {
+		fmt.Println(counterForever)
+		counterForever++
+	}*/
+
+	// For arreglo
+	// For arreglo segun (cantidad del array)
+	fmt.Printf("\n")
+	nombresArray := [5]string{"Ana", "José", "Daniel", "María", "Carlos"}
+	for i := 0; i < len(nombresArray); i++ {
+		fmt.Println(nombresArray[i])
+	}
+	fmt.Printf("\n")
+
+	//For Range (para obtener indice y valor)
+	arreglo := []int{0, 1, 4, 6, 10, 9}
+	fmt.Println("Arreglo:", arreglo)
+
+	fmt.Println("Primer ejemplo")
+	for i, j := range arreglo {
+		fmt.Printf("indice i: %d tiene como valor #%d\n", i, j)
+	}
+
+
 
 }
