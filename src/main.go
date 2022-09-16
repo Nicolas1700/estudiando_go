@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"strings"
-	/*
+	/*"strings"
 		"log"
 		"strconv"
 	*/)
@@ -65,7 +64,6 @@ func valUsuPass(usuName, pass string) bool {
 		return false
 	}
 }
-*/
 
 func isPalindromo(text string) {
 
@@ -82,6 +80,7 @@ func isPalindromo(text string) {
 		fmt.Println("No es palindromo")
 	}
 }
+*/
 
 func main() {
 
@@ -377,6 +376,7 @@ func main() {
 	*/
 
 	// Recorrido de slices
+	/*
 	slice := []string{"Hola", "que", "hace"}
 	for i, j := range slice {
 		fmt.Printf("indice i: %d tiene como valor %s \n", i, j)
@@ -384,5 +384,28 @@ func main() {
 
 	// Palindromo
 	isPalindromo("Reconocer")
+	*/
+
+	//Llave valor con maps
+
+	m := make(map[string]int)
+	// Agregagr valores
+	m["Nicolas"] = 19
+	m["Juan"] = 25
+
+	fmt.Println(m)
+
+	// Recorrer map
+	for i,v := range m {
+		fmt.Println(i, v)
+	}
+
+	// Encontrar un valor
+	value := m["Nicolas"]
+	fmt.Println(value)
+
+	// Si un valor no esta presente
+	value2, ok := m["Luis"]
+	fmt.Println(value2, ok)
 
 }
