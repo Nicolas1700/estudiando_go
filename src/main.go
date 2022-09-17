@@ -1,13 +1,20 @@
 package main
 
 import (
+	pk "curso_golang_platzi/src/mypackage"
 	"fmt"
 	/*"strings"
-		"log"
-		"strconv"
+	"log"
+	"strconv"
 	*/)
 
 /*
+type car struct {
+	brand string
+	year  int
+}
+
+
 func funNormal() {
 	fmt.Println("Hello word")
 }
@@ -377,35 +384,59 @@ func main() {
 
 	// Recorrido de slices
 	/*
-	slice := []string{"Hola", "que", "hace"}
-	for i, j := range slice {
-		fmt.Printf("indice i: %d tiene como valor %s \n", i, j)
-	}
+		slice := []string{"Hola", "que", "hace"}
+		for i, j := range slice {
+			fmt.Printf("indice i: %d tiene como valor %s \n", i, j)
+		}
 
-	// Palindromo
-	isPalindromo("Reconocer")
+		// Palindromo
+		isPalindromo("Reconocer")
 	*/
 
 	//Llave valor con maps
+	/*
+		m := make(map[string]int)
+		// Agregagr valores
+		m["Nicolas"] = 19
+		m["Juan"] = 25
 
-	m := make(map[string]int)
-	// Agregagr valores
-	m["Nicolas"] = 19
-	m["Juan"] = 25
+		fmt.Println(m)
 
-	fmt.Println(m)
+		// Recorrer map
+		for i,v := range m {
+			fmt.Println(i, v)
+		}
 
-	// Recorrer map
-	for i,v := range m {
-		fmt.Println(i, v)
-	}
+		// Encontrar un valor
+		value := m["Nicolas"]
+		fmt.Println(value)
 
-	// Encontrar un valor
-	value := m["Nicolas"]
-	fmt.Println(value)
+		// Si un valor no esta presente
+		value2, ok := m["Luis"]
+		fmt.Println(value2, ok)
+	*/
 
-	// Si un valor no esta presente
-	value2, ok := m["Luis"]
-	fmt.Println(value2, ok)
+	// Uso de strucks
+	/*
+	
+		// Primera forma
+		myCar := car{brand: "Lamborghini Aventador SVJ", year: 2022}
+		fmt.Println(myCar)
+		// Segunda forma
+		var otherCar car
+		otherCar.brand = "Lamborghini Urus"
+		otherCar.year = 2022
+		fmt.Println(otherCar)
+	*/
+
+	// Acceso a funciones y strucks
+
+	var myCar pk.CarPublic 
+	myCar.Brand = "Lamborghini"
+	myCar.Year = 2022
+
+	fmt.Println(myCar)
+	
+	pk.PrintMessage("Estoy aprendiendo Go")
 
 }
