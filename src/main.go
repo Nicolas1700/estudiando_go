@@ -1,12 +1,11 @@
 package main
 
 import (
-	computer "curso_golang_platzi/src/mypc"
 	"fmt"
 )
 
 /*
-
+computer "curso_golang_platzi/src/mypc"
 pk "curso_golang_platzi/src/mypackage"
 "fmt"
 "strings"
@@ -15,6 +14,16 @@ pk "curso_golang_platzi/src/mypackage"
 */
 
 //Structs
+type pc struct {
+	ram   int
+	disk  int
+	brand string
+}
+
+// Funcion para personalizar outputs de struct
+func (myPc pc) String() string {
+	return fmt.Sprintf("Tengo %d GB RAM, %d GB disco y un %s.", myPc.ram, myPc.disk, myPc.brand)
+}
 
 //Funciones
 /*
@@ -470,18 +479,21 @@ func main() {
 	*/
 
 	//Ejemplo uso punteros
-
 	//El struct esta en mypc/mypc.go
+	/*
+		myPc := computer.Pc{Ram: 16, Disk: 200, Brand: "MSI"}
 
-	myPc := computer.Pc{Ram: 16, Disk: 200, Brand: "MSI"}
+		fmt.Println(myPc)
+		myPc.Ping()
+		myPc.DuplicateRam()
 
-	fmt.Println(myPc)
-	myPc.Ping()
-	myPc.DuplicateRam()
+		fmt.Println(myPc)
+		myPc.DuplicateRam()
 
-	fmt.Println(myPc)
-	myPc.DuplicateRam()
+		fmt.Println(myPc)
+	*/
 
-	fmt.Println(myPc)
-
+	// Stringers, personalizar outputs de struct
+	myPC := pc{ram: 16, brand: "msi", disk: 100}
+	fmt.Println(myPC)
 }
