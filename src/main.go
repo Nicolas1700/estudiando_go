@@ -4,6 +4,43 @@ import (
 	"fmt"
 )
 
+/* Aprendiendo interfaces
+//En import
+in "curso_golang_platzi/src/interfaces"
+cu "curso_golang_platzi/src/pkgcuadrado"
+re "curso_golang_platzi/src/pkgrectangulo"
+
+// Interfaz, ejecuta el arrea -> segun el struct
+// Esto solo lo hace go por nosotros, de ver cual
+// es el metodo segun el strcut
+type figuras2D interface {
+	area() float64
+}
+
+type cuadrado struct {
+	base float64
+}
+
+type rectangulo struct {
+	base   float64
+	altura float64
+}
+
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
+// Aca se genera el met de cal area, el cual toma
+// la interfaz y ejecuta el met de area
+func calcularArea(f figuras2D) {
+	fmt.Println("Area: ", f.area())
+}
+*/
+// Other imports
 /*
 computer "curso_golang_platzi/src/mypc"
 pk "curso_golang_platzi/src/mypackage"
@@ -13,25 +50,25 @@ pk "curso_golang_platzi/src/mypackage"
 "strconv"
 */
 
-//Structs
+// Struct y funciones
+/*
+// Structs
+type car struct {
+	brand string
+	year  int
+}
+
 type pc struct {
 	ram   int
 	disk  int
 	brand string
 }
 
+// Funciones
 // Funcion para personalizar outputs de struct
 func (myPc pc) String() string {
 	return fmt.Sprintf("Tengo %d GB RAM, %d GB disco y un %s.", myPc.ram, myPc.disk, myPc.brand)
 }
-
-//Funciones
-/*
-type car struct {
-	brand string
-	year  int
-}
-
 
 func funNormal() {
 	fmt.Println("Hello word")
@@ -479,8 +516,8 @@ func main() {
 	*/
 
 	//Ejemplo uso punteros
-	//El struct esta en mypc/mypc.go
 	/*
+		//El struct esta en mypc/mypc.go
 		myPc := computer.Pc{Ram: 16, Disk: 200, Brand: "MSI"}
 
 		fmt.Println(myPc)
@@ -494,6 +531,33 @@ func main() {
 	*/
 
 	// Stringers, personalizar outputs de struct
-	myPC := pc{ram: 16, brand: "msi", disk: 100}
-	fmt.Println(myPC)
+	/*
+		myPC := pc{ram: 16, brand: "msi", disk: 100}
+		fmt.Println(myPC)
+	*/
+
+	// Interfaces y lista de interfaces
+	/*
+		myCuadrado := cuadrado{base: 10}
+		myRectangulo := rectangulo{base: 5, altura:8}
+		calcularArea(myCuadrado)
+		calcularArea(myRectangulo)
+
+		// Lista de interfaces
+		myInterface := []interface{}{12,"Hola",1.8}
+		fmt.Println(myInterface)
+	*/
+	// Reto
+	
+	//Reto interfaces
+	/*
+	rectangulo2 := re.Rectangulo{Base: 7, Largo: 10}
+	cuadrado2 := cu.Cuadrado{Base: 10}
+
+	fmt.Println(rectangulo2)
+	fmt.Println(cuadrado2)
+
+	in.CalcularArea(rectangulo2)
+	in.CalcularArea(cuadrado2)
+	*/
 }
