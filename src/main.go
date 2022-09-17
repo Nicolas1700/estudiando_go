@@ -1,13 +1,22 @@
 package main
 
 import (
-	pk "curso_golang_platzi/src/mypackage"
+	computer "curso_golang_platzi/src/mypc"
 	"fmt"
-	/*"strings"
-	"log"
-	"strconv"
-	*/)
+)
 
+/*
+
+pk "curso_golang_platzi/src/mypackage"
+"fmt"
+"strings"
+"log"
+"strconv"
+*/
+
+//Structs
+
+//Funciones
 /*
 type car struct {
 	brand string
@@ -418,7 +427,7 @@ func main() {
 
 	// Uso de strucks
 	/*
-	
+
 		// Primera forma
 		myCar := car{brand: "Lamborghini Aventador SVJ", year: 2022}
 		fmt.Println(myCar)
@@ -430,13 +439,49 @@ func main() {
 	*/
 
 	// Acceso a funciones y strucks
+	/*
+		var myCar pk.CarPublic
+		myCar.Brand = "Lamborghini"
+		myCar.Year = 2022
 
-	var myCar pk.CarPublic 
-	myCar.Brand = "Lamborghini"
-	myCar.Year = 2022
+		fmt.Println(myCar)
 
-	fmt.Println(myCar)
-	
-	pk.PrintMessage("Estoy aprendiendo Go")
+		pk.PrintMessage("Estoy aprendiendo Go")
+	*/
+
+	//Structs y punteros
+	/*
+		a := 50
+		// Dir en mem de a
+		b := &a
+		fmt.Println(a)
+		fmt.Println(b)
+
+		// Ver val de la dir
+		fmt.Println(*b)
+
+		// Cambio de valor de a, por medio de conocer
+		// el valor de la memoria con *b
+		*b = 100
+		// Esto provoca un cambio en cadena, y ya a vale
+		// 100 porque su valor esta siendo cambiado por el
+		// puntero (*b)
+		fmt.Println(a)
+	*/
+
+	//Ejemplo uso punteros
+
+	//El struct esta en mypc/mypc.go
+
+	myPc := computer.Pc{Ram: 16, Disk: 200, Brand: "MSI"}
+
+	fmt.Println(myPc)
+	myPc.Ping()
+	myPc.DuplicateRam()
+
+	fmt.Println(myPc)
+	myPc.DuplicateRam()
+
+	fmt.Println(myPc)
 
 }
