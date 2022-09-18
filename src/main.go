@@ -2,11 +2,26 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
 )
 
-// Aprendiendo Goroutines
+func message (text string, c chan string){
+	c <- text
+}
+
+/* Aprendiendo channels
+// Se recibe el channel de esta forma
+// Buena practica indicar si el channel es de entrada
+// o es de de salida
+func say (text string, c chan<- string){
+	// Se pasa informacion al channel
+	c <- text
+	// Tambien se obtiene el valor de salida con variable = <-channel
+	// Se usa para ver y terminar la gorouting
+}
+*/
+
+// Apr Goroutines uso sin channels
+/*
 func say(text string, wg *sync.WaitGroup) {
 
 	// Indicamos que de esta va a ser la ultima accion
@@ -16,7 +31,7 @@ func say(text string, wg *sync.WaitGroup) {
 	fmt.Println(text)
 
 }
-
+*/
 /* Aprendiendo interfaces
 //En import
 in "curso_golang_platzi/src/interfaces"
@@ -575,25 +590,90 @@ func main() {
 	*/
 
 	// Go rutines
+	/*
+		// sync es un paquete que permite interactuar de forma
+		// primitiva con las goroutine, (eficiente -> complejo mantener)
+		var wg sync.WaitGroup
 
-	// sync es un paquete que permite interactuar de forma
-	// primitiva con las goroutine, (eficiente -> complejo mantener)
-	var wg sync.WaitGroup
+		fmt.Println("Hello")
 
-	fmt.Println("Hello")
+		// Agregamos una goroutine al ciclo del WaitGroup, con la cantidad de goroutine
+		wg.Add(1)
+		// Pasamos como parametro el puntero de la wg
+		go say("world", &wg)
 
-	// Agregamos una goroutine al ciclo del WaitGroup, con la cantidad de goroutine
-	wg.Add(1)
-	// Pasamos como parametro el puntero de la wg
-	go say("world", &wg)
+		// Indicamos la goroutine del main, que espere
+		wg.Wait()
 
-	// Indicamos la goroutine del main, que espere
-	wg.Wait()
+		// Goroutines con funciones anonimas
+		go func(text string) {
+			fmt.Println(text)
+		} ("Adiosinn")
+		time.Sleep(time.Second * 1)
+	*/
 
-	// Goroutines con funciones anonimas
-	go func(text string) {
-		fmt.Println(text)
-	} ("Adiosinn")
-	time.Sleep(time.Second * 1)
+	// Aprendiendo Channels
+	/*
+		// Crear un channel con tip de dato || luego
+		// el 1 es la cantidad de goroutines que realizara a la vez
+		// si no se pone pueden ser varias en simultaneo, esto puede
+		// perder un orden, "mejor poner 1"
+		c := make(chan string, 1)
+
+		fmt.Println("Hello")
+
+		go say("Mundo", c)
+
+		// Se obtiene el valor de salida de la
+		// gorouting con el channel de salida
+		fmt.Println(<-c)
+
+		// Otra gorouting separada en ejecutarce
+		go say("fin", c)
+		fmt.Println(<-c)
+
+	*/
+
+	// Channels con Range, Close y Select
+
+	c := make(chan string, 3)
+	c <- "Mensaje1"
+	c <- "Mensaje2"
+
+	// Len() nos da la cantidad de datos o goroutines ahi en el canal
+	// cap() Nos indica la capacidad maxima del channel o "canal"
+	fmt.Println(len(c),cap(c))
 	
+	// Close y range
+	close(c)
+	for message := range c {
+		fmt.Println(message)
+	}
+
+	// Select
+	email1 := make(chan string)
+	email2 := make(chan string)
+	email3 := make(chan string)
+
+	go message("Hola", email1)
+	go message("Mundo", email2)
+	go message("Fin", email3)
+
+	// Para usar channel se debe tener en cuenta:
+	// la cantidad de datos en cada channel y cantidad de channels
+
+	for i := 0; i < 3; i++ {
+		select {
+		case m1 := <- email1:
+			fmt.Println("Llego el mensaje #1", m1)
+		
+		case m2 := <- email2:
+			fmt.Println("Llego el mensaje #2", m2)
+
+		case m2 := <- email3:
+			fmt.Println("Llego el mensaje #3", m2)
+		
+		}
+	}
+
 }
