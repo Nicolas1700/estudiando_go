@@ -1,12 +1,16 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
+	"github.com/labstack/echo"
 )
 
-func message (text string, c chan string){
+// Channels con Range, Close y Select
+/*
+func message(text string, c chan string) {
 	c <- text
 }
+*/
 
 /* Aprendiendo channels
 // Se recibe el channel de esta forma
@@ -635,45 +639,58 @@ func main() {
 	*/
 
 	// Channels con Range, Close y Select
+	/*
+		c := make(chan string, 3)
+		c <- "Mensaje1"
+		c <- "Mensaje2"
 
-	c := make(chan string, 3)
-	c <- "Mensaje1"
-	c <- "Mensaje2"
+		// Len() nos da la cantidad de datos o goroutines ahi en el canal
+		// cap() Nos indica la capacidad maxima del channel o "canal"
+		fmt.Println(len(c),cap(c))
 
-	// Len() nos da la cantidad de datos o goroutines ahi en el canal
-	// cap() Nos indica la capacidad maxima del channel o "canal"
-	fmt.Println(len(c),cap(c))
-	
-	// Close y range
-	close(c)
-	for message := range c {
-		fmt.Println(message)
-	}
-
-	// Select
-	email1 := make(chan string)
-	email2 := make(chan string)
-	email3 := make(chan string)
-
-	go message("Hola", email1)
-	go message("Mundo", email2)
-	go message("Fin", email3)
-
-	// Para usar channel se debe tener en cuenta:
-	// la cantidad de datos en cada channel y cantidad de channels
-
-	for i := 0; i < 3; i++ {
-		select {
-		case m1 := <- email1:
-			fmt.Println("Llego el mensaje #1", m1)
-		
-		case m2 := <- email2:
-			fmt.Println("Llego el mensaje #2", m2)
-
-		case m2 := <- email3:
-			fmt.Println("Llego el mensaje #3", m2)
-		
+		// Close y range
+		close(c)
+		for message := range c {
+			fmt.Println(message)
 		}
-	}
+
+		// Select
+		email1 := make(chan string)
+		email2 := make(chan string)
+		email3 := make(chan string)
+
+		go message("Hola", email1)
+		go message("Mundo", email2)
+		go message("Fin", email3)
+
+		// Para usar channel se debe tener en cuenta:
+		// la cantidad de datos en cada channel y cantidad de channels
+
+		for i := 0; i < 3; i++ {
+			select {
+			case m1 := <- email1:
+				fmt.Println("Llego el mensaje #1", m1)
+
+			case m2 := <- email2:
+				fmt.Println("Llego el mensaje #2", m2)
+
+			case m2 := <- email3:
+				fmt.Println("Llego el mensaje #3", m2)
+
+			}
+		}
+	*/
+
+	// echo con, con go module
+
+	// Instanciar echo
+	e := echo.New()
+	
+	// Ruta
+	e.GET("./", func (c echo.Context) error {
+		return c.String(http.StatusOK, "Hello word")
+	}) 
+	e.Logger.Fatal(e.Start(":1323"))
+
 
 }
