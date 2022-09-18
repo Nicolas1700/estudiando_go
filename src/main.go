@@ -2,7 +2,20 @@ package main
 
 import (
 	"fmt"
+	"sync"
+	"time"
 )
+
+// Aprendiendo Goroutines
+func say(text string, wg *sync.WaitGroup) {
+
+	// Indicamos que de esta va a ser la ultima accion
+	// dentro de la funcion, diciento que el wg esta listo y hecho
+	defer wg.Done()
+
+	fmt.Println(text)
+
+}
 
 /* Aprendiendo interfaces
 //En import
@@ -548,16 +561,39 @@ func main() {
 		fmt.Println(myInterface)
 	*/
 	// Reto
-	
+
 	//Reto interfaces
 	/*
-	rectangulo2 := re.Rectangulo{Base: 7, Largo: 10}
-	cuadrado2 := cu.Cuadrado{Base: 10}
+		rectangulo2 := re.Rectangulo{Base: 7, Largo: 10}
+		cuadrado2 := cu.Cuadrado{Base: 10}
 
-	fmt.Println(rectangulo2)
-	fmt.Println(cuadrado2)
+		fmt.Println(rectangulo2)
+		fmt.Println(cuadrado2)
 
-	in.CalcularArea(rectangulo2)
-	in.CalcularArea(cuadrado2)
+		in.CalcularArea(rectangulo2)
+		in.CalcularArea(cuadrado2)
 	*/
+
+	// Go rutines
+
+	// sync es un paquete que permite interactuar de forma
+	// primitiva con las goroutine, (eficiente -> complejo mantener)
+	var wg sync.WaitGroup
+
+	fmt.Println("Hello")
+
+	// Agregamos una goroutine al ciclo del WaitGroup, con la cantidad de goroutine
+	wg.Add(1)
+	// Pasamos como parametro el puntero de la wg
+	go say("world", &wg)
+
+	// Indicamos la goroutine del main, que espere
+	wg.Wait()
+
+	// Goroutines con funciones anonimas
+	go func(text string) {
+		fmt.Println(text)
+	} ("Adiosinn")
+	time.Sleep(time.Second * 1)
+	
 }
