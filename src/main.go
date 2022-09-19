@@ -1,15 +1,22 @@
 package main
 
 import (
-	"net/http"
-	"github.com/labstack/echo"
+	_ "fmt"
+	_ "net/http"
+	_ "github.com/labstack/echo"
 )
 
+// funcion de hello de libreria ekko
+/*
+	func hello(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello, World!")
+	}
+*/
 // Channels con Range, Close y Select
 /*
-func message(text string, c chan string) {
-	c <- text
-}
+	func message(text string, c chan string) {
+		c <- text
+	}
 */
 
 /* Aprendiendo channels
@@ -26,15 +33,15 @@ func say (text string, c chan<- string){
 
 // Apr Goroutines uso sin channels
 /*
-func say(text string, wg *sync.WaitGroup) {
+	func say(text string, wg *sync.WaitGroup) {
 
-	// Indicamos que de esta va a ser la ultima accion
-	// dentro de la funcion, diciento que el wg esta listo y hecho
-	defer wg.Done()
+		// Indicamos que de esta va a ser la ultima accion
+		// dentro de la funcion, diciento que el wg esta listo y hecho
+		defer wg.Done()
 
-	fmt.Println(text)
+		fmt.Println(text)
 
-}
+	}
 */
 /* Aprendiendo interfaces
 //En import
@@ -74,107 +81,109 @@ func calcularArea(f figuras2D) {
 */
 // Other imports
 /*
-computer "curso_golang_platzi/src/mypc"
-pk "curso_golang_platzi/src/mypackage"
-"fmt"
-"strings"
-"log"
-"strconv"
+	computer "curso_golang_platzi/src/mypc"
+	pk "curso_golang_platzi/src/mypackage"
+	"fmt"
+	"strings"
+	"log"
+	"strconv"
 */
 
 // Struct y funciones
 /*
+
 // Structs
-type car struct {
-	brand string
-	year  int
-}
-
-type pc struct {
-	ram   int
-	disk  int
-	brand string
-}
-
-// Funciones
-// Funcion para personalizar outputs de struct
-func (myPc pc) String() string {
-	return fmt.Sprintf("Tengo %d GB RAM, %d GB disco y un %s.", myPc.ram, myPc.disk, myPc.brand)
-}
-
-func funNormal() {
-	fmt.Println("Hello word")
-}
-
-func funUnParametro(message string) {
-	fmt.Println(message)
-}
-
-func funVariosParametros(a, b int, c string) {
-	fmt.Println(a, b, c)
-}
-
-func retunrValue(a int) int {
-	return a * 2
-}
-
-func doubleValue(a int) (b, c int) {
-	return a, a * 2
-}
-
-// Funciones sobre encontrar el area de un rectangulo, tapecio y circulo
-// Rectangulo
-func areaRectangulo(baseRectangulo, alturaRectangulo float64) float64 {
-	return baseRectangulo * alturaRectangulo
-}
-
-// Trapecio
-func areaTrapecio(baseMenor, baseMayor, alturaTrapecio float64) float64 {
-	return (baseMenor + baseMayor) * alturaTrapecio / 2
-}
-
-// Circulo
-func areaCirculo(radio float64) float64 {
-	const pi float64 = 3.141592
-	return radio * radio * pi
-}
-
-
-// Reto crear funciones
-// Crear una fun que reciba un numero y diga si es par o impar
-func numParImpar(num int) string {
-	if num%2 == 0 {
-		return "Es par"
-	} else {
-		return "Es impar"
-	}
-}
-
-// Crear fun que reciba un usu y pass, y diga si son validos o no para ing a la plataforma
-func valUsuPass(usuName, pass string) bool {
-	if usuName == "Nicolas" && pass == "1313u" {
-		return true
-	} else {
-		return false
-	}
-}
-
-func isPalindromo(text string) {
-
-	text = strings.ToLower(text)
-	textReverse := ""
-
-	for i := len(text) - 1; i >= 0; i-- {
-		textReverse += string(text[i])
+	type car struct {
+		brand string
+		year  int
 	}
 
-	if text == textReverse {
-		fmt.Println("Es palindromo")
-	}else{
-		fmt.Println("No es palindromo")
+	type pc struct {
+		ram   int
+		disk  int
+		brand string
 	}
-}
+
+	// Funciones
+	// Funcion para personalizar outputs de struct
+	func (myPc pc) String() string {
+		return fmt.Sprintf("Tengo %d GB RAM, %d GB disco y un %s.", myPc.ram, myPc.disk, myPc.brand)
+	}
+
+	func funNormal() {
+		fmt.Println("Hello word")
+	}
+
+	func funUnParametro(message string) {
+		fmt.Println(message)
+	}
+
+	func funVariosParametros(a, b int, c string) {
+		fmt.Println(a, b, c)
+	}
+
+	func retunrValue(a int) int {
+		return a * 2
+	}
+
+	func doubleValue(a int) (b, c int) {
+		return a, a * 2
+	}
+
+	// Funciones sobre encontrar el area de un rectangulo, tapecio y circulo
+	// Rectangulo
+	func areaRectangulo(baseRectangulo, alturaRectangulo float64) float64 {
+		return baseRectangulo * alturaRectangulo
+	}
+
+	// Trapecio
+	func areaTrapecio(baseMenor, baseMayor, alturaTrapecio float64) float64 {
+		return (baseMenor + baseMayor) * alturaTrapecio / 2
+	}
+
+	// Circulo
+	func areaCirculo(radio float64) float64 {
+		const pi float64 = 3.141592
+		return radio * radio * pi
+	}
+
+
+	// Reto crear funciones
+	// Crear una fun que reciba un numero y diga si es par o impar
+	func numParImpar(num int) string {
+		if num%2 == 0 {
+			return "Es par"
+		} else {
+			return "Es impar"
+		}
+	}
+
+	// Crear fun que reciba un usu y pass, y diga si son validos o no para ing a la plataforma
+	func valUsuPass(usuName, pass string) bool {
+		if usuName == "Nicolas" && pass == "1313u" {
+			return true
+		} else {
+			return false
+		}
+	}
+
+	func isPalindromo(text string) {
+
+		text = strings.ToLower(text)
+		textReverse := ""
+
+		for i := len(text) - 1; i >= 0; i-- {
+			textReverse += string(text[i])
+		}
+
+		if text == textReverse {
+			fmt.Println("Es palindromo")
+		}else{
+			fmt.Println("No es palindromo")
+		}
+	}
 */
+
 
 func main() {
 
@@ -681,16 +690,17 @@ func main() {
 		}
 	*/
 
-	// echo con, con go module
+	// hello word con libreria ekko :)
+	/*
+		// Echo instance
+		e := echo.New()
 
-	// Instanciar echo
-	e := echo.New()
-	
-	// Ruta
-	e.GET("./", func (c echo.Context) error {
-		return c.String(http.StatusOK, "Hello word")
-	}) 
-	e.Logger.Fatal(e.Start(":1323"))
+		// Routes
+		e.GET("/", hello)
 
+		// Start server
+		e.Logger.Fatal(e.Start(":1323"))
+
+	*/
 
 }
